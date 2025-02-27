@@ -1,0 +1,17 @@
+[Unit]
+Description=Neo4j Graph Database
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=root
+Environment="JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64"
+Environment="JRE_HOME=/usr/lib/jvm/java-21-openjdk-amd64"
+Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/jvm/java-21-openjdk-amd64/bin"
+Environment="NEO4J_HOME=/opt/neo4j-chs-community-5.24.0-unix"
+Environment="NEO4J_CONF=/opt/neo4j-chs-community-5.24.0-unix/conf"
+
+ExecStart=/opt/neo4j-chs-community-5.24.0-unix/bin/neo4j console
+
+[Install]
+WantedBy=multi-user.target
