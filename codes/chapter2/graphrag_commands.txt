@@ -1,0 +1,26 @@
+﻿export TIKTOKEN_CACHE_DIR=/home/ubuntu/dataset/test/tiktoken
+
+python -m graphrag prompt-tune --root . --language Chinese  --limit 2 --chunk-size 500 --config ./settings.yaml
+
+python -m graphrag index --root .
+
+python -m graphrag query --root . --method global --query "《悟空传》书中都有哪些妖怪？"
+
+python -m graphrag query --root . --method drift --query "《悟空传》中唐僧的取经团队对待妖怪是什么样的态度？"
+
+
+
+export TIKTOKEN_CACHE_DIR=/home/ubuntu/dataset/test_ollama/tiktoken
+
+curl -X POST http://localhost:11434/api/generate -H "Content-type:application/json" -d "{\"model\": \"qwen2.5\",\"prompt\":\"你好，请介绍一下你自己。\"}"
+
+curl http://localhost:11434/api/embeddings -d '{ "model": "all-minilm","prompt": "请介绍一下你自己。"}'
+
+python -m graphrag index --root .
+
+python -m graphrag query --root . --method global --query "《悟空传》书中有些什么妖怪？"
+
+python -m graphrag query --root . --method local --query "《悟空传》中孙悟空跟女妖之间有什么故事？"
+
+python -m graphrag query --root . --method drift --query "《悟空传》中唐僧的取经团队对待妖怪是什么样的态度？"
+

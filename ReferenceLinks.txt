@@ -80,30 +80,24 @@
 　　https://github.com/microsoft/graphrag/blob/main/docs/visualization_guide.md
 4、《悟空传》的前7章
 　　https://dushu.baidu.com/pc/detail?gid=4305630473
-5、Auto Prompt Tuning
+5、《解决tiktoken库调用get_encoding时SSL超时》
+　　https://blog.csdn.net/yufanwenshu/article/details/142290067
+6、Auto Prompt Tuning
 　　https://microsoft.github.io/graphrag/prompt_tuning/auto_prompt_tuning/
-6、GraphRAG自动Prompt Tuning
+7、GraphRAG自动Prompt Tuning
 　　https://mp.weixin.qq.com/s/69MeYny5nZmfjS1b4QUvTg
-7、开发GraphRAG（知识图谱检索增强生成）应用
+8、开发GraphRAG（知识图谱检索增强生成）应用
 　　https://zhuanlan.zhihu.com/p/704919102
-8、ms_graphrag_import.ipynb
-　　https://github.com/tomasonjo/blogs/blob/master/llm/ms_graphrag_import.ipynb
-9、global_search.ipynb
-　　https://github.com/microsoft/graphrag/blob/main/docs/examples_notebooks/global_search.ipynb
-10、local_search.ipynb
-　　https://github.com/microsoft/graphrag/blob/main/docs/examples_notebooks/local_search.ipynb
-11、issue #1335 TypeError: Query column vector must be a vector
-　　https://github.com/microsoft/graphrag/issues/1335
-12、命令行查询工具源码
+9、ms_graphrag_import.ipynb
+　　https://github.com/microsoft/graphrag/blob/main/examples_notebooks/community_contrib/neo4j/graphrag_import_neo4j_cypher.ipynb
+10、命令行查询工具源码
 　　https://github.com/microsoft/graphrag/blob/main/graphrag/cli/query.py
-13、drift_search.ipynb
-　　https://github.com/microsoft/graphrag/blob/main/docs/examples_notebooks/drift_search.ipynb
-14、Ollama主页
+11、local_search.ipynb
+　　https://github.com/microsoft/graphrag/blob/main/docs/examples_notebooks/local_search.ipynb
+12、Ollama主页
 　　https://github.com/ollama/ollama
-15、Qwen2.5
+13、Qwen2.5
 　　https://ollama.com/library/qwen2.5:7b
-16、issue#657 Support model providers other than OpenAI and Azure
-　　https://github.com/microsoft/graphrag/issues/657
 　　
 第3章 Neo4j GraphRAG
 1、Neo4j Knowledge Graph Builder主页

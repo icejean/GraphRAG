@@ -1,0 +1,23 @@
+﻿call db.schema.visualization
+
+match (e:`__Entity__`) return labels(e), e.title limit 10
+
+match (c:`__Community__`) return c.title2, c.summary;
+
+match (e:`__Entity__`)-[r:IN_COMMUNITY]->(c:`__Community__`) return e,r,c;
+
+match (e:`__Entity__`)-[r]-(c:`__Chunk__`)-[p]-(d:`__Document__`) return e,r,c,p,d
+
+MATCH (e:`__Entity__`)-[r]-(c:`__Community__`{title:"Community 4"}),
+(e1:`__Entity__`)-[r1]-(c1:`__Community__`)-[r2]-(c:`__Community__`{title:"Community 4"}),
+(e:`__Entity__`)-[r3]-(c2:`__Chunk__`)
+RETURN e, r, c, r3, c2,e1,r1,c1,r2
+
+
+
+match (e:`__Entity__`)-[r:IN_COMMUNITY]->(c:`__Community__`) return e,r,c;
+
+match (e:`__Entity__`)-[r]-(c:`__Chunk__`)-[p]-(d:`__Document__`)
+return e,r,c,p,d
+
+
