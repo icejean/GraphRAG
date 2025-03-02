@@ -1,0 +1,38 @@
+﻿call db.schema.visualization
+
+MATCH (n)
+UNWIND labels(n) AS label
+RETURN label, count(n) AS Total
+ORDER BY Total DESC
+
+match (n:Document) return n.fileName order by n.fileName
+
+match (n:Document)  
+where n.combined_chunk_ids is not null 
+return n.combined_chunk_ids
+
+match (n:Document{id:"318a8d231157873dae67ffa4584caefe"})-[r]-(m:`__Entity__`),
+(d:Document)-[r3]-(c:Chunk)-[r2]-(m:`__Entity__`) 
+where c.id in n.combined_chunk_ids
+return n,r,m,r2,c,r3,d
+
+MATCH ()-[r]->()
+RETURN type(r) AS RelationshipType, count(r) AS NumberOfEdges
+ORDER BY NumberOfEdges DESC
+
+match (n:`__Community__`)
+return n.id, n.level,n.summary
+
+MATCH (c1:`__Community__`)-[r1:PARENT_COMMUNITY*1..]-(c2:`__Community__`)<-[r]-(e:`__Entity__`)
+RETURN c1, r1, c2, r, e
+
+match (n:`__Community__`{id:"0-4"})-[r]-(m:`__Entity__`),
+(d:Document)-[r2]-(c:Chunk)-[r3]-(m:`__Entity__`)
+return n,r,m,r3,c,r2,d
+
+match (c:`__Community__`{id:"0-4"})-[r1]-(n:`__Entity__`),
+(c:`__Community__`{id:"0-4"})-[r2]-(m:`__Entity__`)
+with n,m
+match (n:`__Entity__`)-[r]-(m:`__Entity__`)
+return n,r,m
+

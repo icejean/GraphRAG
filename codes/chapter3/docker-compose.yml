@@ -1,0 +1,110 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/code
+      # Added by Jean 2025/01/25 to load embedding models localy
+      - /home/demo/.cache:/root/.cache
+    environment:
+      - NEO4J_URI=${NEO4J_URI-neo4j://database:7687}
+      - NEO4J_PASSWORD=${NEO4J_PASSWORD-password}
+      - NEO4J_USERNAME=${NEO4J_USERNAME-neo4j}
+      - OPENAI_API_KEY=${OPENAI_API_KEY-}
+      - DIFFBOT_API_KEY=${DIFFBOT_API_KEY-}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL-all-MiniLM-L6-v2}
+      - RAGAS_EMBEDDING_MODEL=${EMBEDDING_MODEL-all-MiniLM-L6-v2}
+      - LANGCHAIN_ENDPOINT=${LANGCHAIN_ENDPOINT-}
+      - LANGCHAIN_TRACING_V2=${LANGCHAIN_TRACING_V2-}
+      - LANGCHAIN_PROJECT=${LANGCHAIN_PROJECT-}
+      - LANGCHAIN_API_KEY=${LANGCHAIN_API_KEY-}
+      - KNN_MIN_SCORE=${KNN_MIN_SCORE-0.94}
+      - IS_EMBEDDING=${IS_EMBEDDING-true}
+      - GEMINI_ENABLED=${GEMINI_ENABLED-False}
+      - GCP_LOG_METRICS_ENABLED=${GCP_LOG_METRICS_ENABLED-False}
+      - UPDATE_GRAPH_CHUNKS_PROCESSED=${UPDATE_GRAPH_CHUNKS_PROCESSED-20}
+      - NUMBER_OF_CHUNKS_TO_COMBINE=${NUMBER_OF_CHUNKS_TO_COMBINE-6}
+      - ENTITY_EMBEDDING=${ENTITY_EMBEDDING-False}
+      - GCS_FILE_CACHE=${GCS_FILE_CACHE-False}
+      # Added by Jean, 2024/11/7
+      - LLM_MODEL_CONFIG_openai_gpt_4o=${LLM_MODEL_CONFIG_openai_gpt_4o-}
+      - LLM_MODEL_CONFIG_openai_gpt_4o_mini=${LLM_MODEL_CONFIG_openai_gpt_4o_mini-}
+      - LLM_MODEL_CONFIG_baidu_ernie_4_0=${LLM_MODEL_CONFIG_baidu_ernie_4_0-}
+      - LLM_MODEL_CONFIG_xunfei_spark_4_0=${LLM_MODEL_CONFIG_xunfei_spark_4_0-}
+      - LLM_MODEL_CONFIG_tengxun_hunyuan_pro=${LLM_MODEL_CONFIG_tengxun_hunyuan_pro-}
+      - LLM_MODEL_CONFIG_ali_tongyi_qwen_max=${LLM_MODEL_CONFIG_ali_tongyi_qwen_max-}
+      - LLM_MODEL_CONFIG_ollama_qwen_2_5=${LLM_MODEL_CONFIG_ollama_qwen_2_5-}
+      - LLM_MODEL_CONFIG_vllm_minicpm_3=${LLM_MODEL_CONFIG_vllm_minicpm_3-}
+      - LLM_MODEL_CONFIG_ollama_deepseek_r_1=${LLM_MODEL_CONFIG_ollama_deepseek_r_1-}
+      - LLM_MODEL_CONFIG_siliconflow_deepseek_r_1=${LLM_MODEL_CONFIG_siliconflow_deepseek_r_1-}
+      - LLM_MODEL_CONFIG_siliconflow_deepseek_v_3=${LLM_MODEL_CONFIG_siliconflow_deepseek_v_3-}
+      - HTTP_PROXY=${HTTP_PROXY}
+      - HTTPS_PROXY=${HTTPS_PROXY}
+      - http_proxy=${HTTP_PROXY}
+      - https_proxy=${HTTPS_PROXY}
+      # Added by Jean 2025/1/20
+      - LANGUAGE=${LANGUAGE-english}
+
+    # env_file:
+    #   - ./backend/.env
+    container_name: backend
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    ports:
+      - "4000:8000"
+    networks:
+      - net
+
+  frontend:
+    depends_on:
+      - backend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_BACKEND_API_URL=${VITE_BACKEND_API_URL-http://localhost:8000}
+        - VITE_REACT_APP_SOURCES=${VITE_REACT_APP_SOURCES-local,wiki,s3}
+        - VITE_GOOGLE_CLIENT_ID=${VITE_GOOGLE_CLIENT_ID-}
+        - VITE_BLOOM_URL=${VITE_BLOOM_URL-https://workspace-preview.neo4j.io/workspace/explore?connectURL={CONNECT_URL}&search=Show+me+a+graph&featureGenAISuggestions=true&featureGenAISuggestionsInternal=true}
+        - VITE_TIME_PER_PAGE=${VITE_TIME_PER_PAGE-50}
+        - VITE_CHUNK_SIZE=${VITE_CHUNK_SIZE-5242880}
+        - VITE_LARGE_FILE_SIZE=${VITE_LARGE_FILE_SIZE-5242880}
+        - VITE_ENV=${VITE_ENV-DEV}
+        - VITE_CHAT_MODES=${VITE_CHAT_MODES-}
+        - VITE_BATCH_SIZE=${VITE_BATCH_SIZE-2}
+        - VITE_LLM_MODELS=${VITE_LLM_MODELS-}
+        - VITE_LLM_MODELS_PROD=${VITE_LLM_MODELS_PROD-openai_gpt_4o,openai_gpt_4o_mini}
+        - DEPLOYMENT_ENV=local
+
+        - HTTP_PROXY=${HTTP_PROXY}
+        - HTTPS_PROXY=${HTTPS_PROXY}
+        - http_proxy=${HTTP_PROXY}
+        - https_proxy=${HTTPS_PROXY}
+
+
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+    # Added by Jean, 2024/11/7
+    environment:
+      - HTTP_PROXY=${HTTP_PROXY}
+      - HTTPS_PROXY=${HTTPS_PROXY}
+      - http_proxy=${HTTP_PROXY}
+      - https_proxy=${HTTPS_PROXY}
+
+    env_file:
+      - ./frontend/.env
+    container_name: frontend
+    extra_hosts:
+      - host.docker.internal:host-gateway      
+    ports:
+      - "4040:8080"
+    networks:
+      - net
+
+networks:
+  net:
