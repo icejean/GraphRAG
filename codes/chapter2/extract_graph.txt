@@ -1,0 +1,164 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: One of the following types: [deity, mythical creature, celestial body, geographical location, task, emotion]
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: an integer score between 1 to 10, indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in Chinese as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into Chinese, just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+
+entity_types: [deity, mythical creature, celestial body, geographical location, task, emotion]
+text:
+�脉流遍了全身，他无法自抑，将她揽入怀中。
+
+他们深吻着，几十万年等待的光阴将这一刻铸成永恒。
+
+当长吻终于结束的时候，她从他的怀里脱身而出，一看天际，忽然惊叫了起来：“糟了！”
+
+她被吻时法力消散，银核已经汇聚，却还有几亿颗散落在天河各处。
+
+她掩面哭泣了起来：“我做了那么久，花了那么长的时间，还是失败了。”
+
+天蓬轻轻揽住她的肩：“别哭了，世间没有一件造物会是完美的，但有时缺憾会更美。你抬头看看。”
+
+她抬起头，只见天河四野，俱是银星闪耀。
+
+“从前天河是一片黑暗的，现在你把它变成了银色的，那么，我们就改叫它‘银河’吧，那个银色的小球，我们就叫它……”
+
+“用我的名字吧，叫它——月。”
+
+“月……那我可以说……月光下，映着一对爱人吗？”
+
+……
+
+月光下，映着一对爱人，他们紧紧相拥。
+
+------------------------
+output:
+```plaintext
+("entity"{tuple_delimiter}天蓬{tuple_delimiter}deity{tuple_delimiter}天蓬是一个神祇，安慰并鼓励她在失败后继续前行)
+{record_delimiter}
+("entity"{tuple_delimiter}天河{tuple_delimiter}geographical location{tuple_delimiter}天河是一个广阔的星空区域，原本是一片黑暗，现在被银色的星星点亮)
+{record_delimiter}
+("entity"{tuple_delimiter}银河{tuple_delimiter}geographical location{tuple_delimiter}银河是天河的新名字，因其被银色星星点亮而得名)
+{record_delimiter}
+("entity"{tuple_delimiter}月{tuple_delimiter}celestial body{tuple_delimiter}月是一个银色的小球，以她的名字命名)
+{record_delimiter}
+("entity"{tuple_delimiter}爱{tuple_delimiter}emotion{tuple_delimiter}爱是他们之间深厚的情感，几十万年的等待铸成永恒)
+{record_delimiter}
+("relationship"{tuple_delimiter}天蓬{tuple_delimiter}天河{tuple_delimiter}天蓬提议将天河改名为银河，因为它被银色星星点亮{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}天蓬{tuple_delimiter}月{tuple_delimiter}天蓬提议用她的名字命名银色的小球为月{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}天蓬{tuple_delimiter}爱{tuple_delimiter}天蓬与她之间的爱是深厚且永恒的{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}天河{tuple_delimiter}银河{tuple_delimiter}天河被改名为银河，因为它被银色星星点亮{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}月{tuple_delimiter}爱{tuple_delimiter}月光下映着一对爱人，象征着他们的爱{tuple_delimiter}9)
+{completion_delimiter}
+```
+#############################
+
+
+Example 2:
+
+entity_types: [deity, mythical creature, celestial body, geographical location, task, emotion]
+text:
+神什么的，谁见过你呀！”
+
+“你在说什么？五岳山？是五行山才对呀？销前罪？你也记得你做的事，又怎是杀几个妖天庭就会放过你的？”
+
+“你在说什么？我本是花果山一妖猴，因不敬天帝而被罚入五岳，关了五百年，后来蒙玉帝开恩，说只要我能完成三件事，就赎了我的前罪，以前的事我记得清清楚楚，哪来的你……”
+
+女子现出惊疑神色：“怎么会……难道说……他们要你做三件事，是哪三件？”
+
+“你还真烦哩，好吧，就让你死个明白。第一件，要我保刚才那个秃头上西天。第二件，要我杀了四个魔王……”
+
+“四魔王？！”
+
+“没错，就是西贺牛洲平天大圣牛魔王、北俱芦洲混天大圣鹏魔王、南赡部洲通天大圣猕猴王，还有一个，东胜神洲齐天大圣美猴王！”
+
+“哈……美……美猴王？！”
+
+“怎么，你认识他？第三件事，待这两事做完，才会告诉我。你怎么又哭了？”
+
+女子喃喃念道：“是了，他已记不得一切，也记不得你了……”她又仰起脸来，“但有一件事你要知道，你就是……”
+
+
+------------------------
+output:
+("entity"{tuple_delimiter}五行山{tuple_delimiter}geographical location{tuple_delimiter}五行山是一个神话中的地理位置，传说中孙悟空被压在此山下五百年)
+{record_delimiter}
+("entity"{tuple_delimiter}花果山{tuple_delimiter}geographical location{tuple_delimiter}花果山是孙悟空的故乡，位于神话中的一个神秘之地)
+{record_delimiter}
+("entity"{tuple_delimiter}天帝{tuple_delimiter}deity{tuple_delimiter}天帝是天庭的统治者，负责惩罚不敬的妖怪)
+{record_delimiter}
+("entity"{tuple_delimiter}玉帝{tuple_delimiter}deity{tuple_delimiter}玉帝是天庭的最高统治者，给予孙悟空完成三件事以赎罪的机会)
+{record_delimiter}
+("entity"{tuple_delimiter}西贺牛洲{tuple_delimiter}geographical location{tuple_delimiter}西贺牛洲是神话中的一个大陆，牛魔王的领地)
+{record_delimiter}
+("entity"{tuple_delimiter}北俱芦洲{tuple_delimiter}geographical location{tuple_delimiter}北俱芦洲是神话中的一个大陆，鹏魔王的领地)
+{record_delimiter}
+("entity"{tuple_delimiter}南赡部洲{tuple_delimiter}geographical location{tuple_delimiter}南赡部洲是神话中的一个大陆，猕猴王的领地)
+{record_delimiter}
+("entity"{tuple_delimiter}东胜神洲{tuple_delimiter}geographical location{tuple_delimiter}东胜神洲是神话中的一个大陆，美猴王的领地)
+{record_delimiter}
+("entity"{tuple_delimiter}牛魔王{tuple_delimiter}mythical creature{tuple_delimiter}牛魔王是西贺牛洲的平天大圣，四魔王之一)
+{record_delimiter}
+("entity"{tuple_delimiter}鹏魔王{tuple_delimiter}mythical creature{tuple_delimiter}鹏魔王是北俱芦洲的混天大圣，四魔王之一)
+{record_delimiter}
+("entity"{tuple_delimiter}猕猴王{tuple_delimiter}mythical creature{tuple_delimiter}猕猴王是南赡部洲的通天大圣，四魔王之一)
+{record_delimiter}
+("entity"{tuple_delimiter}美猴王{tuple_delimiter}mythical creature{tuple_delimiter}美猴王是东胜神洲的齐天大圣，四魔王之一)
+{record_delimiter}
+("entity"{tuple_delimiter}三件事{tuple_delimiter}task{tuple_delimiter}孙悟空需要完成的三件事以赎罪，包括护送秃头上西天和杀死四魔王)
+{record_delimiter}
+("relationship"{tuple_delimiter}孙悟空{tuple_delimiter}五行山{tuple_delimiter}孙悟空因不敬天帝被压在五行山下五百年{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}孙悟空{tuple_delimiter}花果山{tuple_delimiter}孙悟空是花果山的一只妖猴{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}天帝{tuple_delimiter}孙悟空{tuple_delimiter}天帝惩罚孙悟空因其不敬{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}玉帝{tuple_delimiter}孙悟空{tuple_delimiter}玉帝给予孙悟空完成三件事以赎罪的机会{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}牛魔王{tuple_delimiter}四魔王{tuple_delimiter}牛魔王是四魔王之一{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}鹏魔王{tuple_delimiter}四魔王{tuple_delimiter}鹏魔王是四魔王之一{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}猕猴王{tuple_delimiter}四魔王{tuple_delimiter}猕猴王是四魔王之一{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}美猴王{tuple_delimiter}四魔王{tuple_delimiter}美猴王是四魔王之一{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}三件事{tuple_delimiter}孙悟空{tuple_delimiter}孙悟空需要完成三件事以赎罪{tuple_delimiter}8)
+{completion_delimiter}
+#############################
+
+
+
+-Real Data-
+######################
+entity_types: [deity, mythical creature, celestial body, geographical location, task, emotion]
+text: {input_text}
+######################
+output:
