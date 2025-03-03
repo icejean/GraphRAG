@@ -256,7 +256,7 @@
 
 第5章 Agent开发
 1、Conversational RAG
-　　https://python.langchain.com/docs/tutorials/qa_chat_history/
+　　https://python.langchain.com/v0.2/docs/tutorials/qa_chat_history/
 2、Agentic RAG
 　　https://langchain-ai.github.io/langgraph/tutorials/rag/langgraph_agentic_rag/
 3、Neo4jVector的文档
