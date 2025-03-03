@@ -1,0 +1,54 @@
+﻿match (n)-[r]-(m) return n,r,m
+
+match (n:`__Entity__`) 
+with labels(n) as types, n
+unwind types as type
+return type, count(n) as c order by c desc;
+
+match (n:`__Entity__`)  
+return n.id as name,labels(n)as type 
+order by n.id limit 100;
+
+match (n:`__Entity__`)-[r]-(m:`__Entity__`) 
+with r
+return type(r) as type, count(r) as c order by c desc
+
+call db.schema.visualization
+
+match (n:`__Entity__`{id:"唐僧"})-[r]-(m:`__Entity__`) return n,r,m;
+
+match (n:`__Entity__`{id:"悟空"})-[r]-(m:`__Chunk__`) return n,r,m;
+
+show indexes
+
+MATCH (n1:`__Entity__`), (n2:`__Entity__`)
+WHERE id(n1) < id(n2)  // 避免重复计算同一对节点，和自己与自己比较
+WITH n1, n2, vector.similarity.cosine(n1.embedding, n2.embedding) AS similarity, apoc.text.distance(toLower(n1.id), toLower(n2.id)) as distance
+WHERE similarity>0.8 and distance<5
+RETURN n1.id AS Node1, n2.id AS Node2, similarity, distance
+ORDER BY similarity DESC, n1.id, n2.id
+
+
+MATCH (m:`__Entity__`)
+WITH collect(distinct m.wcc) as old_wccs
+MATCH (n:`__Entity__`)
+SET n.wcc1 = apoc.coll.indexOf(old_wccs, n.wcc)
+RETURN n
+MATCH (n:`__Entity__`)
+SET n.color = CASE n.wcc1 % 5
+                 WHEN 0 THEN 'red'
+                 WHEN 1 THEN 'blue'
+                 WHEN 2 THEN 'green'
+                 WHEN 3 THEN 'purple'
+                 WHEN 4 THEN 'pink'
+              END
+RETURN n
+
+
+MATCH (n:`__Entity__`)-[r:SIMILAR]-(m:`__Entity__`) RETURN n,r,m
+
+
+match (n:`__Entity__`)-[r:SIMILAR]-(m:`__Entity__`) return n,r,m
+
+match (e:`__Entity__`)-[r]-(c:`__Community__`) return e,r,c
+
