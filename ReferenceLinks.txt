@@ -162,6 +162,13 @@
 　　https://github.com/neo4j-labs/llm-graph-builder/blob/main/backend/requirements.txt
 31、Neo4j Knowledge Graph Builder backend API
 　　https://github.com/neo4j-labs/llm-graph-builder/blob/main/docs/backend/backend_docs.adoc
+32、Answer relevancy metric is worse in languages other than English
+　　https://github.com/neo4j-labs/llm-graph-builder/issues/998
+33、Optimization for loading big embedding models into GPU
+　　https://github.com/neo4j-labs/llm-graph-builder/issues/1036
+34、Optimization for building more efficient backend image requires less disk space and time
+　　https://github.com/neo4j-labs/llm-graph-builder/issues/1037
+
 
 第4章 开发GraphRAG应用
 1、微软GraphRAG论文
