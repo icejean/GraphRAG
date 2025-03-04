@@ -1,0 +1,10 @@
+﻿$git clone https://github.com/vllm-project/vllm.git
+$cd vllm
+
+$ export CUDA_HOME=/usr/local/cuda
+$ export CUDACXX=$CUDA_HOME/bin/nvcc
+$ export PATH=$CUDA_HOME/bin:/usr/lib/nvidia-cuda-toolkit/bin:$PATH
+$ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+
+
+$ sudo -E -H pip install -e .
