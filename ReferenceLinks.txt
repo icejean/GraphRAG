@@ -90,13 +90,15 @@
 　　https://zhuanlan.zhihu.com/p/704919102
 9、ms_graphrag_import.ipynb
 　　https://github.com/microsoft/graphrag/blob/main/examples_notebooks/community_contrib/neo4j/graphrag_import_neo4j_cypher.ipynb
-10、命令行查询工具源码
+10、高级API源码
+　　https://github.com/microsoft/graphrag/blob/main/graphrag/api/query.py
+11、命令行查询工具源码
 　　https://github.com/microsoft/graphrag/blob/main/graphrag/cli/query.py
-11、local_search.ipynb
+12、local_search.ipynb
 　　https://github.com/microsoft/graphrag/blob/main/docs/examples_notebooks/local_search.ipynb
-12、Ollama主页
+13、Ollama主页
 　　https://github.com/ollama/ollama
-13、Qwen2.5
+14、Qwen2.5
 　　https://ollama.com/library/qwen2.5:7b
 　　
 第3章 Neo4j GraphRAG
