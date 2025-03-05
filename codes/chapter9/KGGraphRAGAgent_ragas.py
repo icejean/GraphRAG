@@ -57,10 +57,13 @@ def loadLLM(vendor):
         )
     elif vendor=="Ali":
         model = ChatTongyi(model="qwen-max")   # qwen-plus, qwen-turbo, qwen-max
-    elif vendor=="Siliconflow":
-        model = ChatOpenAI(model="Pro/deepseek-ai/DeepSeek-V3", # deepseek-ai/DeepSeek-V3, deepseek-ai/DeepSeek-R1
-            api_key=keys.siliconflow_key,
-            base_url = "https://api.siliconflow.cn/v1")   # gpt-4o-mini, gpt-4o      
+    elif vendor=="DeepSeek":  # DeepSeek官方
+        model = ChatOpenAI(
+            # deepseek-reasoner, deepseek-chat
+            model="deepseek-chat",   
+            api_key=keys.deepseek_key,
+            base_url = "https://api.deepseek.com/v1"
+        )
     elif vendor=="Ollama":
         model = ChatOllama(
             model="qwen2.5:14b",  # qwen2.5:14b, MiniCPM3-4B-FP16
@@ -117,13 +120,13 @@ from langchain_core.messages import AIMessage, HumanMessage
 
 
 # 加载LLM与Embedding模型
-llm = loadLLM("OpenAI")
+# llm = loadLLM("OpenAI")
 # llm = loadLLM("Baidu")
 # llm = loadLLM("Xunfei")
 # llm = loadLLM("Tengxun")
 # llm = loadLLM("Ali")
 # llm = loadLLM("Ollama")
-# llm = loadLLM("Siliconflow")
+llm = loadLLM("DeepSeek")
 
 
 # 使用与建立知识图谱相同的Embedding模型
@@ -981,11 +984,13 @@ def loadLLM2(vendor):
         )
     elif vendor=="Ali":
         model = ChatTongyi(model="qwen-max")   # qwen-plus, qwen-turbo, qwen-max
-    elif vendor=="Siliconflow":
-        # Pro/deepseek-ai/DeepSeek-V3, Pro/deepseek-ai/DeepSeek-R1      
-        model = ChatOpenAI(model="Pro/deepseek-ai/DeepSeek-V3", 
-            api_key=keys.siliconflow_key,
-            base_url = "https://api.siliconflow.cn/v1")   # gpt-4o-mini, gpt-4o      
+    elif vendor=="DeepSeek":  # DeepSeek官方
+        model = ChatOpenAI(
+            # deepseek-reasoner, deepseek-chat
+            model="deepseek-chat",   
+            api_key=keys.deepseek_key,
+            base_url = "https://api.deepseek.com/v1"
+        )
     elif vendor=="Ollama":
         model = ChatOllama(
             model="qwen2.5:14b",  # qwen2.5:14b, MiniCPM3-4B-FP16
@@ -1003,7 +1008,7 @@ def loadLLM2(vendor):
     return model
 
 # This LLM instance is used to run assessments
-llm2 = loadLLM2("OpenAI") # OpenAI, Baidu, Ali, Tengxun, Xunfei, Ollama, vLLM
+llm2 = loadLLM2("DeepSeek") # OpenAI, Baidu, Ali, Tengxun, Xunfei, Ollama, vLLM
 
 question = messages[-4].content
 print(question)
@@ -1057,7 +1062,7 @@ score = evaluate(
     # metrics=[faithfulness, context_entity_recall],
     llm=llm2,
     embeddings=embeddings,
-    token_usage_parser=get_token_usage_for_openai, # 只有用OpenAI时才估算token流量。
+    # token_usage_parser=get_token_usage_for_openai, # 只有用OpenAI时才估算token流量。
 )
 
 # OpenAI, Baidu, Ali, Tengxun四家可用，讯飞单个指标可以执行，两个以上不行。
@@ -1067,8 +1072,8 @@ df = score.to_pandas()[['faithfulness', 'answer_relevancy','context_entity_recal
 # df = score.to_pandas()[['answer_relevancy']]
 df
 
-score.total_tokens()
-score.total_cost(cost_per_input_token=5 / 1e6, cost_per_output_token=15 / 1e6)
+# score.total_tokens()
+# score.total_cost(cost_per_input_token=5 / 1e6, cost_per_output_token=15 / 1e6)
 
 
 import numpy as np
@@ -1127,7 +1132,7 @@ score = evaluate(
     # metrics=[faithfulness, context_entity_recall],
     llm=llm3,
     embeddings=embeddings,
-    token_usage_parser=get_token_usage_for_openai, # 只有用OpenAI时才估算token流量。
+    # token_usage_parser=get_token_usage_for_openai, # 只有用OpenAI时才估算token流量。
 )
 
 # OpenAI, Baidu, Ali, Tengxun四家可用，讯飞单个指标可以执行，两个以上不行。
