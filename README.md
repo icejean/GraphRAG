@@ -2,6 +2,7 @@
 本库收录的是《GraphRAG实战》一书的开源资源，包括引用资料、图片、代码和样章等。<br><br>
 
 本书用的是 [Neo4j Community Edition](https://we-yun.com/blog/prod-56.html) ，不支持多个图数据库同时在线，一次只能1个图数据库在线。所以，如果有多个应用有多个图，它们都存放在同一个图数据库中的话，它们的结点标签就不能相同，所使用的向量索引的名字也不能相同。<br><br>
+第2章《微软 GraphRAG》中建立与使用的知识图谱，结点的标签是`__Document__`、`__Chunk__`、`__Entity__`与`__Community__`。<br><br>
 第3章《Neo4j GraphRAG》中建立与使用的知识图谱，结点的标签是`Document`、`Chunk`、`Entity`、`__Community__`。<br><br>
 第4章《开发GraphRAG应用》与第5章《Agent开发》建立与使用的知识图谱，结点的标签是`__Document__`、`__Chunk__`、`__Entity__`与`__Community__`，实体向量索引的名称是`vector`。<br><br>
 第6章《在GraphRAG中应用国产大模型》，第7章《本地部署LLM》，第8章《开发GraphRAG APP》建立与使用的知识图谱，结点的标签是`__Document2__`、`__Chunk2__`、`__Entity2__`与`__Community2__`，实体向量索引的名称是`vector2`。<br><br>
