@@ -1,0 +1,68 @@
+graph ER {
+    label = "《悟空传》GraphRAG查询解决方案架构图";
+    labelloc  =  t; // t: Place the graph's title on top.
+    fontsize  = 64; // Make title stand out by giving a large font size
+    fontcolor = black;
+    layout=dot;
+    
+    node [fontsize=36]; // 设置所有节点的默认字体大小
+    edge [fontsize=36]; // 设置所有边的默认字体大小
+    
+    subgraph cluster_wukong {
+        label="《悟空传》GraphRAG查询";
+        fontsize  = 48;
+        style=filled;
+        fillcolor=gray90;
+        subgraph cluster_shiny_app{
+            label="Shiny APP";
+            style=filled;
+            fillcolor=aliceblue;            
+            node [shape=squre, style=filled, fillcolor=yellowgreen];对话;选择LLM;清空对话;溯源查验; 
+            node [shape=squre, style=filled, fillcolor=pink];登录;登出;
+        }
+    }
+
+    subgraph cluster_python {
+        label="Python服务器端";
+        fontsize  = 48;
+        style=filled;
+        fillcolor=gray90;
+        subgraph cluster_fastapi{
+            label="FastAPI服务器";
+            style=filled;
+            fillcolor=aliceblue; 
+            node [shape=squre, style=filled, fillcolor=yellowgreen];  "Chat API"; 溯源API; 登录API; 登出API; "清空Session API"; "选择LLM API";
+        }
+        subgraph cluster_Agent{
+            label="《悟空传》GraphRAG Agent";
+            style=filled;
+            fillcolor=aliceblue;            
+            node [shape=squre, style=filled, fillcolor=yellowgreen];  Agent; LLM; 
+            node [shape=squre, style=filled, fillcolor=pink];  全局查询工具; 局部查询工具; 
+            node [shape=oval, style=filled, fillcolor=gold]; 知识图谱;
+        }
+        
+        
+    }    
+
+    登录 -- 登录API[label="(1)", color=red, penwidth=5]; 
+    登出 -- 登出API[label="(10)", color=red, penwidth=5];   
+    选择LLM -- "选择LLM API"[label="(2)", color=blue, penwidth=5];    
+    对话 -- "Chat API"[label="(3)", color=red, penwidth=5];    
+    清空对话 -- "清空Session API"[label="(3)", color=darkgreen, penwidth=5];    
+    溯源查验 -- 溯源API[label="(8)", color=orange, penwidth=5];    
+
+    "Chat API" -- Agent[label="(4)", color=red, penwidth=5];
+    "选择LLM API" -- Agent[label="(3)", color=blue, penwidth=5]; 
+    "清空Session API" -- Agent[label="(4)", color=darkgreen, penwidth=5]; 
+    
+    Agent -- LLM[label="(5)", color=darkorchid, penwidth=5];    
+    Agent -- 全局查询工具[label="(5)", color=red, penwidth=5];    
+    Agent -- 局部查询工具[label="(5)", color=deeppink, penwidth=5]; 
+    全局查询工具 -- 知识图谱[label="(6)", color=red, penwidth=5]; 
+    局部查询工具 -- 知识图谱[label="(6)", color=deeppink, penwidth=5]; 
+    全局查询工具 -- LLM[label="(7)", color=red, penwidth=5]; 
+    局部查询工具 -- LLM[label="(7)", color=deeppink, penwidth=5]; 
+    溯源API -- 知识图谱[label="(9)", color=orange, penwidth=5]; 
+   
+}    

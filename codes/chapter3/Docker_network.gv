@@ -1,0 +1,128 @@
+graph ER {
+    label = "WSL2+Ubuntu22+Docker网络拓扑图";
+    labelloc  =  t; // t: Place the graph's title on top.
+    fontsize  = 30; // Make title stand out by giving a large font size
+    fontcolor = black;
+    layout=dot;
+    rankdir=LR; // 关键：设置从左到右的布局
+    
+    subgraph cluster_Internet {
+        label="互联网";
+        fontsize  = 24;
+        style=filled;
+        //fillcolor=gray90;
+        fillcolor=aliceblue;            
+
+        node [shape=oval, style=filled, fillcolor=deepskyblue, fontsize=18];  "Internet";
+    }
+    
+    subgraph cluster_Windows {
+        label="Windows网络";
+        fontsize  = 24;
+        style=filled;
+        //fillcolor=gray90;
+        fillcolor=aliceblue;            
+        node [shape=squre, style=filled, fillcolor=lightblue, fontsize=18];  "Win:127.0.0.1";
+        node [shape=squre, style=filled, fillcolor=yellowgreen, fontsize=18];  "172.20.10.7";
+        node [shape=oval, style=filled, fillcolor=deepskyblue, fontsize=18];  "Windows";
+
+        subgraph cluster_Windows_VPN {
+            label="Windows VPN";
+            fontsize  = 24;
+            style=filled;
+            //fillcolor=gray90;
+            fillcolor=darkolivegreen1;            
+            node [shape=squre, style=filled, fillcolor=gold, fontsize=18]; "WSL 192.168.160.1";
+        }
+        
+        {rank="same"; "Win:127.0.0.1";"172.20.10.7";}
+    }
+    
+    subgraph cluster_Ubuntu {
+        label="Ubuntu22网络";
+        fontsize  = 24;
+        style=filled;
+        //fillcolor=gray90;
+        fillcolor=aliceblue;            
+        node [shape=squre, style=filled, fillcolor=lightblue, fontsize=18];  "Ubuntu:127.0.0.1"; 
+        node [shape=squre, style=filled, fillcolor=yellowgreen, fontsize=18];  "192.168.173.198";
+        node [shape=squre, style=filled, fillcolor=gold, fontsize=18]; "Ubuntu 192.168.160.1";
+        node [shape=squre, style=filled, fillcolor=lightpink, fontsize=18]; "Bridge 172.18.0.1";
+        node [shape=squre, style=filled, fillcolor=lightpink, fontsize=18]; "veth71a5beb@if11";
+        node [shape=squre, style=filled, fillcolor=lightpink, fontsize=18]; "veth2ad5557@if13";
+        node [shape=oval, style=filled, fillcolor=deepskyblue, fontsize=18];  "Ubuntu22";
+
+        subgraph cluster_Ubuntu_VPN {
+            label="Ubuntu22 VPN";
+            fontsize  = 24;
+            style=filled;
+            fillcolor=darkolivegreen1;            
+            node [shape=squre, style=filled, fillcolor=gold, fontsize=18]; "Ubuntu 172.17.0.1";
+        }
+        
+        subgraph cluster_frontend{
+            label="Frontend网络";
+            style=filled;
+            fillcolor=gray90;            
+            node [shape=squre, style=filled, fillcolor=lightblue, fontsize=18]; "Frontend 127.0.0.1";
+            node [shape=squre, style=filled, fillcolor=lightpink, fontsize=18]; "@if12 172.18.0.3";
+            node [shape=oval, style=filled, fillcolor=deepskyblue, fontsize=18];  "Frontend Container";
+            {rank="same"; "Frontend 127.0.0.1";"@if12 172.18.0.3";}
+        }
+        
+        subgraph cluster_backend{
+            label="Backend网络";
+            style=filled;
+            fillcolor=gray90;            
+            node [shape=squre, style=filled, fillcolor=lightblue, fontsize=18]; "Backend 127.0.0.1";
+            node [shape=squre, style=filled, fillcolor=lightpink, fontsize=18]; "@if14 172.18.0.2";
+            node [shape=squre, style=filled, fillcolor=gold, fontsize=18]; "Backent 172.17.0.1";
+            node [shape=oval, style=filled, fillcolor=deepskyblue, fontsize=18];  "Backend Container";
+            
+            {rank="same"; "Backend 127.0.0.1";"@if14 172.18.0.2";"Backent 172.17.0.1";}
+        }
+        
+        {rank="same"; "Ubuntu:127.0.0.1";"192.168.173.198";"Bridge 172.18.0.1";"Ubuntu 192.168.160.1";}
+        
+        {rank="same"; "veth71a5beb@if11";"veth2ad5557@if13";}
+       
+    }
+
+  "WSL 192.168.160.1" --  "Ubuntu 192.168.160.1"[color=blue, penwidth=5];
+  "veth71a5beb@if11" --  "@if12 172.18.0.3"[color=blue, penwidth=5];
+  "veth2ad5557@if13" --  "@if14 172.18.0.2"[color=blue, penwidth=5];
+  "Ubuntu 172.17.0.1" --  "Backent 172.17.0.1"[color=blue, penwidth=5];
+  "Bridge 172.18.0.1" --  "veth71a5beb@if11"[color=blue, penwidth=5];
+  "Bridge 172.18.0.1" --  "veth2ad5557@if13"[color=blue, penwidth=5];
+  
+  "172.20.10.7" -- "Internet"[color=blue, penwidth=5];
+
+  "Windows" -- "WSL 192.168.160.1"[color=blue, penwidth=5];
+  "Windows" -- "Win:127.0.0.1"[color=blue, penwidth=5];
+  "Windows" -- "172.20.10.7"[color=blue, penwidth=5];
+  
+  "Ubuntu22" -- "Ubuntu:127.0.0.1"[color=blue, penwidth=5];
+  "Ubuntu22" -- "192.168.173.198"[color=blue, penwidth=5];
+  "Ubuntu22" -- "Ubuntu 192.168.160.1"[color=blue, penwidth=5];
+  "Ubuntu22" -- "Bridge 172.18.0.1"[color=blue, penwidth=5];
+  //"Ubuntu22" -- "veth71a5beb@if11"[color=blue, penwidth=5];
+  //"Ubuntu22" -- "veth2ad5557@if13"[color=blue, penwidth=5];
+  "Ubuntu22" -- "Ubuntu 172.17.0.1"[color=blue, penwidth=5];
+
+  "Frontend Container" -- "@if12 172.18.0.3"[color=blue, penwidth=5];
+  "Frontend Container" -- "Frontend 127.0.0.1"[color=blue, penwidth=5];
+
+  "Backend Container" -- "@if14 172.18.0.2"[color=blue, penwidth=5];
+  "Backend Container" -- "Backend 127.0.0.1"[color=blue, penwidth=5];
+  "Backend Container" -- "Backent 172.17.0.1"[color=blue, penwidth=5];
+  
+    // 用虚拟节点连接两个子图
+    "WSL 192.168.160.1" -- "Ubuntu22" [style=invis]; 
+    "veth2ad5557@if13" -- "Backend Container" [style=invis]; 
+    "veth71a5beb@if11" -- "Frontend Container" [style=invis]; 
+    
+    // 关键：使用不可见边来微调布局
+    "Internet" -- "Windows" [style=invis, weight=10]; // 增加权重以增强水平排列的趋势
+    "Internet" -- "Ubuntu22" [style=invis, weight=1]; // 较小的权重，允许Ubuntu部分稍微靠下
+    
+}
