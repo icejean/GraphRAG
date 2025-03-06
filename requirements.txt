@@ -1,0 +1,300 @@
+accelerate==1.1.1
+aiohappyeyeballs==2.4.3
+aiohttp==3.11.8
+aioitertools==0.12.0
+aiolimiter==1.1.0
+aiosignal==1.3.1
+aiosqlite==0.20.0
+alembic==1.14.0
+annotated-types==0.7.0
+anyio==4.6.2.post1
+appdirs==1.4.4
+argcomplete==3.5.1
+arize-phoenix==7.6.0
+arize-phoenix-evals==0.18.1
+arize-phoenix-otel==0.6.1
+asgiref==3.8.1
+asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
+attrs==24.2.0
+Authlib==1.4.0
+auto_gptq==0.7.1
+bce-python-sdk==0.9.23
+beautifulsoup4==4.12.3
+black==24.10.0
+Brotli @ file:///croot/brotli-split_1714483155106/work
+cachetools==5.5.0
+certifi @ file:///croot/certifi_1725551672989/work/certifi
+cffi==1.17.1
+charset-normalizer @ file:///croot/charset-normalizer_1721748349566/work
+click==8.1.7
+cloudpickle==3.1.0
+coloredlogs==15.0.1
+comm @ file:///croot/comm_1709322850197/work
+compressed-tensors==0.8.0
+contourpy @ file:///croot/contourpy_1700583582875/work
+cryptography==44.0.0
+cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
+dashscope==1.20.13
+dataclasses-json==0.6.7
+datamodel-code-generator==0.26.3
+datasets==3.1.0
+debugpy @ file:///croot/debugpy_1690905042057/work
+decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
+Deprecated==1.2.15
+dill==0.3.8
+dirtyjson==1.0.8
+diskcache==5.6.3
+distro==1.9.0
+dnspython==2.7.0
+einops==0.8.0
+email_validator==2.2.0
+et_xmlfile==2.0.0
+executing @ file:///opt/conda/conda-bld/executing_1646925071911/work
+fastapi==0.115.5
+fastapi-sessions==0.3.2
+filelock==3.16.1
+filetype==1.2.0
+fonttools @ file:///croot/fonttools_1713551344105/work
+frozenlist==1.5.0
+fsspec==2024.9.0
+future==1.0.0
+gekko==1.2.1
+genson==1.3.0
+gguf==0.10.0
+gmpy2 @ file:///work/ci_py311/gmpy2_1676839849213/work
+google_search_results==2.4.2
+googleapis-common-protos==1.66.0
+graphdatascience==1.12
+graphql-core==3.2.5
+greenlet==3.1.1
+grpc-interceptor==0.15.4
+grpcio==1.69.0
+h11==0.14.0
+hanlp==2.1.0b62
+hanlp_common==0.0.20
+hanlp_downloader==0.0.25
+hanlp_trie==0.0.5
+htmltools==0.6.0
+httpcore==1.0.7
+httptools==0.6.4
+httpx==0.27.2
+httpx-sse==0.4.0
+huggingface-hub==0.26.2
+humanfriendly==10.0
+idna @ file:///croot/idna_1714398848350/work
+importlib_metadata==8.5.0
+inflect==5.6.2
+iniconfig==2.0.0
+interegular==0.3.3
+ipykernel @ file:///croot/ipykernel_1728665589812/work
+ipython @ file:///croot/ipython_1726064227985/work
+isort==5.13.2
+itsdangerous==2.2.0
+jedi @ file:///croot/jedi_1721058342488/work
+Jinja2 @ file:///croot/jinja2_1730902924303/work
+jiter==0.8.0
+joblib==1.4.2
+jsonpatch==1.33
+jsonpickle==4.0.1
+jsonpointer==3.0.0
+jsonschema==4.23.0
+jsonschema-specifications==2024.10.1
+jupyter_client @ file:///croot/jupyter_client_1699455897726/work
+jupyter_core @ file:///croot/jupyter_core_1718818295206/work
+kiwisolver @ file:///work/ci_py311/kiwisolver_1676827230232/work
+langchain==0.3.14
+langchain-community==0.3.14
+langchain-core==0.3.29
+langchain-huggingface==0.1.2
+langchain-nvidia-ai-endpoints==0.3.9
+langchain-ollama==0.2.0
+langchain-openai==0.2.10
+langchain-text-splitters==0.3.5
+langchain-tools==0.1.34
+langchainhub==0.1.21
+langgraph==0.2.53
+langgraph-checkpoint==2.0.6
+langgraph-sdk==0.1.39
+langsmith==0.1.147
+lark==1.2.2
+linkify-it-py==2.0.3
+llama-cloud==0.1.8
+llama-index==0.12.10
+llama-index-agent-openai==0.4.1
+llama-index-callbacks-arize-phoenix==0.3.0
+llama-index-cli==0.4.0
+llama-index-core==0.12.10.post1
+llama-index-embeddings-openai==0.3.1
+llama-index-indices-managed-llama-cloud==0.6.3
+llama-index-llms-openai==0.3.13
+llama-index-multi-modal-llms-openai==0.4.2
+llama-index-program-openai==0.3.1
+llama-index-question-gen-openai==0.3.0
+llama-index-readers-file==0.4.3
+llama-index-readers-llama-parse==0.4.0
+llama-parse==0.5.19
+llama_cpp_python==0.3.2
+llvmlite==0.43.0
+lm-format-enforcer==0.10.9
+lxml==5.3.0
+Mako==1.3.8
+markdown-it-py==3.0.0
+MarkupSafe @ file:///croot/markupsafe_1704205993651/work
+marshmallow==3.23.1
+matplotlib==3.9.2
+matplotlib-inline @ file:///work/ci_py311/matplotlib-inline_1676823841154/work
+mdit-py-plugins==0.4.2
+mdurl==0.1.2
+mistral_common==1.5.1
+mkl-service==2.4.0
+mkl_fft @ file:///io/mkl313/mkl_fft_1730824109137/work
+mkl_random @ file:///io/mkl313/mkl_random_1730823916628/work
+mpmath @ file:///croot/mpmath_1690848262763/work
+msgpack==1.1.0
+msgspec==0.18.6
+multidict==6.1.0
+multimethod==1.12
+multiprocess==0.70.16
+mypy-extensions==1.0.0
+narwhals==1.14.2
+neo4j==5.26.0
+nest-asyncio @ file:///croot/nest-asyncio_1708532673751/work
+networkx @ file:///croot/networkx_1720002482208/work
+nltk==3.9.1
+numba==0.60.0
+numpy @ file:///croot/numpy_and_numpy_base_1708638617955/work/dist/numpy-1.26.4-cp311-cp311-linux_x86_64.whl#sha256=5f96f274d410a1682519282ae769c877d32fdbf171aa8badec7bf5e1d3a1748a
+nvidia-ml-py==12.560.30
+ollama==0.4.1
+openai==1.59.6
+opencv-python-headless==4.10.0.84
+openinference-instrumentation==0.1.20
+openinference-instrumentation-llama-index==3.1.3
+openinference-semantic-conventions==0.1.12
+openpyxl==3.1.5
+opentelemetry-api==1.29.0
+opentelemetry-exporter-otlp==1.29.0
+opentelemetry-exporter-otlp-proto-common==1.29.0
+opentelemetry-exporter-otlp-proto-grpc==1.29.0
+opentelemetry-exporter-otlp-proto-http==1.29.0
+opentelemetry-instrumentation==0.50b0
+opentelemetry-proto==1.29.0
+opentelemetry-sdk==1.29.0
+opentelemetry-semantic-conventions==0.50b0
+optimum==1.23.3
+orjson==3.10.12
+outlines==0.0.46
+packaging @ file:///croot/packaging_1720101850331/work
+pandas==2.2.3
+parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
+partial-json-parser==0.2.1.1.post4
+pathspec==0.12.1
+peft==0.13.2
+pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
+phrasetree==0.0.9
+pillow==10.4.0
+platformdirs @ file:///croot/platformdirs_1692205439124/work
+pluggy==1.5.0
+ply==3.11
+prometheus-fastapi-instrumentator==7.0.0
+prometheus_client==0.21.0
+prompt_toolkit==3.0.48
+propcache==0.2.0
+protobuf==5.29.0
+psutil @ file:///work/ci_py311_2/psutil_1679337388738/work
+ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
+pure-eval @ file:///opt/conda/conda-bld/pure_eval_1646925070566/work
+py-cpuinfo==9.0.0
+pyairports==2.1.1
+pyarrow==16.1.0
+pybind11==2.13.6
+pycountry==24.6.1
+pycparser==2.22
+pycryptodome==3.21.0
+pydantic==2.10.2
+pydantic-settings==2.6.1
+pydantic_core==2.27.1
+Pygments @ file:///croot/pygments_1684279966437/work
+PyJWT==2.6.0
+pynvml==11.5.3
+pyparsing @ file:///croot/pyparsing_1731445506121/work
+pypdf==5.1.0
+PyQt5==5.15.10
+PyQt5-sip @ file:///croot/pyqt-split_1698769088074/work/pyqt_sip
+pysbd==0.3.4
+PySocks @ file:///work/ci_py311/pysocks_1676822712504/work
+pytest==8.3.4
+python-dateutil @ file:///croot/python-dateutil_1716495738603/work
+python-dotenv==1.0.1
+python-multipart==0.0.17
+pytz==2024.2
+pyvis==0.3.2
+PyYAML @ file:///croot/pyyaml_1728657952215/work
+pyzmq @ file:///croot/pyzmq_1705605076900/work
+qianfan==0.4.12.3
+questionary==2.0.1
+ragas==0.2.11
+ray==2.39.0
+referencing==0.35.1
+regex==2024.11.6
+requests @ file:///croot/requests_1730999120400/work
+requests-toolbelt==1.0.0
+rich==13.9.4
+rouge==1.0.1
+rpds-py==0.21.0
+safetensors==0.4.5
+scikit-learn==1.5.2
+scipy==1.14.1
+sensenova==1.0.6
+sentence-transformers==3.3.1
+sentencepiece==0.2.0
+shellingham==1.5.4
+shiny==1.2.1
+sip @ file:///croot/sip_1698675935381/work
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+sniffio==1.3.1
+soupsieve==2.6
+SQLAlchemy==2.0.35
+sqlean.py==3.47.0
+stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
+starlette==0.41.3
+strawberry-graphql==0.253.1
+striprtf==0.0.26
+sympy==1.13.1
+tenacity==8.5.0
+tencentcloud-sdk-python==3.0.1274
+termcolor==2.5.0
+textdistance==4.6.3
+threadpoolctl==3.5.0
+tiktoken==0.7.0
+tokenizers==0.20.3
+toposort==1.5
+torch==2.5.1
+torchaudio==2.5.1
+torchvision==0.20.1
+tornado @ file:///croot/tornado_1718740109488/work
+tqdm==4.67.1
+traitlets @ file:///croot/traitlets_1718227057033/work
+transformers==4.46.3
+triton==3.1.0
+typer==0.13.1
+types-requests==2.32.0.20241016
+typing-inspect==0.9.0
+typing_extensions==4.12.2
+tzdata==2024.2
+uc-micro-py==1.0.3
+unicodedata2 @ file:///croot/unicodedata2_1713212950228/work
+urllib3 @ file:///croot/urllib3_1727769808118/work
+uvicorn==0.32.1
+uvloop==0.21.0
+# Editable Git install with no remote (vllm==0.6.4.post2.dev266+g7be15d93.d20241208.cu126)
+-e /home/demo/vllm
+watchfiles==1.0.0
+wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
+websocket-client==1.8.0
+websockets==14.1
+wrapt==1.17.1
+xformers==0.0.28.post3
+xgrammar==0.1.5
+xxhash==3.5.0
+yarl==1.18.0
+zipp==3.21.0
