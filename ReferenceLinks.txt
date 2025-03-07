@@ -71,7 +71,9 @@
 ¡¡¡¡https://www.nvidia.cn/content/dam/en-zz/zh_cn/Solutions/Data-Center/tesla-t4/nvidia-t4-datasheet-a4-nvidia-772234-r14-lr-cn.pdf
 35¡¢Neo4j Graph Data Science Compatibility matrix
 ¡¡¡¡https://github.com/neo4j/graph-data-science
-36¡¢Neo4j Community Linux Tarball Installation
+36¡¢Î¢ÔÆÊý¾Û
+¡¡¡¡https://we-yun.com/
+37¡¢Neo4j Community Linux Tarball Installation
 ¡¡¡¡https://neo4j.com/docs/operations-manual/current/installation/linux/tarball/#installation-linux-tarball-service
 
 µÚ2ÕÂ Î¢ÈíGraphRAG
