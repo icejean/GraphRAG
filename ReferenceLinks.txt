@@ -324,10 +324,10 @@
 　　https://zhuanlan.zhihu.com/p/22540281019/
 
 第7章 本地部署LLM
-1、Huggingface Installation文档的offline mode
-　　https://huggingface.co/docs/transformers/installation#offline-mode
-2、qwen2.5
+1、qwen2.5
 　　https://ollama.com/library/qwen2.5
+2、bge-m3
+　　https://ollama.com/library/bge-m3
 3、openbmb/MiniCPM3-4B
 　　https://huggingface.co/openbmb/MiniCPM3-4B
 4、Run custom GGUF model on Ollama
