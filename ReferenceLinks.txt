@@ -404,6 +404,11 @@
 　　https://zhuanlan.zhihu.com/p/658996965
 16、Shiny for Python在线文档
 　　https://shiny.posit.co/py/docs/overview.html
+17、Mastering Shiny Examples and Solutions for Python
+　　https://youngroklee-ml.github.io/mastering-shiny-for-python/
+18、Mastering Shiny Examples and Solutions for Python
+　　https://github.com/youngroklee-ml/mastering-shiny-for-python
+
 
 第9章 GraphRAG 应用评估
 1、Ragas项目主页
