@@ -378,38 +378,37 @@
 　　https://www.uvicorn.org/
 3、starlette项目
 　　https://github.com/encode/starlette
-4、How to delete messages
-　　https://langchain-ai.github.io/langgraph/how-tos/memory/delete-messages/
-5、Postman
+4、Postman
 　　https://www.postman.com/
-6、Streamlit
+5、Streamlit
 　　https://streamlit.io/
-7、Flask
+6、Flask
 　　https://github.com/pallets/flask
-8、《精通Shiny》
+7、《精通Shiny》
 　　http://www.oreilly.com.cn/index.php?func=book&isbn=978-7-5766-0656-0
-9、Shiny for Python
+8、Shiny for Python
 　　https://shiny.posit.co/py/
-10、Rstudio Server在线文档
+9、Rstudio Server在线文档
 　　https://posit.co/download/rstudio-server/
-11、《RStudio IDE User Guide》
+10、《RStudio IDE User Guide》
 　　https://docs.posit.co/ide/user/
-12、Shiny Server在线文档
+11、Shiny Server在线文档
 　　https://posit.co/download/shiny-server/
-13、配置Shiny Server为用户发布模式
+12、配置Shiny Server为用户发布模式
 　　https://docs.posit.co/shiny-server/#host-per-user-application-directories
-14、Shiny Server Administrator's Guide
+13、Shiny Server Administrator's Guide
 　　https://docs.posit.co/shiny-server/
-15、《Shiny for Python APP开发》
+14、《Shiny for Python APP开发》
 　　https://zhuanlan.zhihu.com/p/658670798
-16、《墨尔本房价回归模型Shiny for Python APP》
+15、《墨尔本房价回归模型Shiny for Python APP》
 　　https://zhuanlan.zhihu.com/p/658996965
-17、Shiny for Python在线文档
+16、Shiny for Python在线文档
 　　https://shiny.posit.co/py/docs/overview.html
-18、Mastering Shiny Examples and Solutions for Python
+17、Mastering Shiny Examples and Solutions for Python
 　　https://youngroklee-ml.github.io/mastering-shiny-for-python/
-19、Mastering Shiny Examples and Solutions for Python
+18、Mastering Shiny Examples and Solutions for Python
 　　https://github.com/youngroklee-ml/mastering-shiny-for-python
+
 
 第9章 GraphRAG 应用评估
 1、Ragas项目主页
