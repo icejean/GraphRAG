@@ -1,79 +1,73 @@
 各章引用网址列表
 
 第1章 在WSL2上搭建GPU Linux Server深度学习环境
-1、数里乾坤——用R与Python玩转大数据
-　　https://zhuanlan.zhihu.com/p/640437583
-2、优刻得
-　　https://www.ucloud.cn/
-3、GPU算力查询网址
+1、GPU算力查询网址
 　　https://developer.nvidia.com/cuda-gpus
-4、拯救者Y9000X
-　　https://activity.lenovo.com.cn/xiaofei/zjz/hdy.html
-5、Tensorflow Linux Tested build configurations
+2、Tensorflow Linux Tested build configurations
 　　https://tensorflow.google.cn/install/source?hl=en#linux
-6、Tensorflow Winodws Tested build configurations
+3、Tensorflow Winodws Tested build configurations
 　　https://tensorflow.google.cn/install/source_windows?hl=en#gpu
-7、Docker安装运行报错wsl问题排查方案
+4、Docker安装运行报错wsl问题排查方案
 　　https://www.cnblogs.com/bokemoqi/p/17926296.html
-8、Windows10/11家庭版开启Hyper-V虚拟机功能详解
+5、Windows10/11家庭版开启Hyper-V虚拟机功能详解
 　　https://zhuanlan.zhihu.com/p/667571538
-9、WSL Github主页
+6、WSL Github主页
 　　https://github.com/microsoft/WSL
-10、wsl.2.4.11.0.x64 下载地址
+7、wsl.2.4.11.0.x64 下载地址
 　　https://github.com/microsoft/WSL/releases/download/2.4.11/wsl.2.4.11.0.x64.msi
-11、WSL 使用教程
+8、WSL 使用教程
 　　https://www.jianshu.com/p/39a5b2e002b6
-12、Getting Started with CUDA on WSL 2
+9、Getting Started with CUDA on WSL 2
 　　https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl-2
-13、How to Install CUDA on Ubuntu 22.04 | Step-by-Step
+10、How to Install CUDA on Ubuntu 22.04 | Step-by-Step
 　　https://www.cherryservers.com/blog/install-cuda-ubuntu
-14、How to Install NVIDIA Drivers on Ubuntu 24.04
+11、How to Install NVIDIA Drivers on Ubuntu 24.04
 　　https://linuxconfig.org/how-to-install-nvidia-drivers-on-ubuntu-24-04
-15、CUDA 12.3下载地址
+12、CUDA 12.3下载地址
 　　https://developer.nvidia.com/cuda-12-3-2-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local
-16、Tensorflow Tested build configurations
+13、Tensorflow Tested build configurations
 　　https://tensorflow.google.cn/install/source?hl=en#linux
-17、cuDNN Support Matrix
+14、cuDNN Support Matrix
 　　https://docs.nvidia.com/deeplearning/cudnn/latest/reference/support-matrix.html#support-matrix
-18、Ubuntu 20.04(linux) cuda(12)+cudnn的deb方式安装以及验证
+15、Ubuntu 20.04(linux) cuda(12)+cudnn的deb方式安装以及验证
 　　https://blog.csdn.net/qq_32033383/article/details/135015041
-19、cuDNN9.4下载地址
+16、cuDNN9.4下载地址
 　　https://developer.nvidia.com/cudnn-9-4-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network
-20、下载Linux版64-Bit (x86) Installer17
+17、下载Linux版64-Bit (x86) Installer17
 　　https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh
-21、PyTorch主页
+18、PyTorch主页
 　　https://pytorch.org/
-22、Jupyter Lab设置切换虚拟环境
+19、Jupyter Lab设置切换虚拟环境
 　　https://blog.csdn.net/CUFEECR/article/details/123987150
-23、在MNIST上用Pytorch跑跑GPU
+20、在MNIST上用Pytorch跑跑GPU
 　　https://blog.csdn.net/song5bai/article/details/116358451
-24、HanLP
+21、HanLP
 　　https://github.com/hankcs/HanLP
-25、何晗
+22、何晗
 　　https://github.com/hankcs
-26、自然语义科技有限公司
+23、自然语义科技有限公司
 　　https://www.hanlp.com/
-27、HanLP 安装文档
+24、HanLP 安装文档
 　　https://hanlp.hankcs.com/docs/install.html
-28、HanLP Demo
+25、HanLP Demo
 　　https://github.com/hankcs/HanLP/tree/doc-zh/plugins/hanlp_demo/hanlp_demo/zh
-29、HanLP Demo API
+26、HanLP Demo API
 　　https://hanlp.hankcs.com/docs/
-30、HanLP多语种分句模型
+27、HanLP多语种分句模型
 　　https://github.com/hankcs/HanLP/blob/master/plugins/hanlp_demo/hanlp_demo/sent_split.py
-31、HanLP基于规则的分句函数
+28、HanLP基于规则的分句函数
 　　https://github.com/hankcs/HanLP/blob/master/hanlp/utils/rules.py#L19
-32、Nvidia GeForce RTX 2060
+29、Nvidia GeForce RTX 2060
 　　https://www.nvidia.cn/geforce/graphics-cards/rtx-2060/
-33、Nvidia A100
+30、Nvidia A100
 　　https://images.nvidia.cn/aem-dam/en-zz/Solutions/data-center/a100/nvidia-a100-datasheet-nvidia-a4-2188504-r5-zhCN.pdf
-34、Nvidia Tesla T4
+31、Nvidia Tesla T4
 　　https://www.nvidia.cn/content/dam/en-zz/zh_cn/Solutions/Data-Center/tesla-t4/nvidia-t4-datasheet-a4-nvidia-772234-r14-lr-cn.pdf
-35、Neo4j Graph Data Science Compatibility matrix
+32、Neo4j Graph Data Science Compatibility matrix
 　　https://github.com/neo4j/graph-data-science
-36、微云数聚
+33、微云数聚
 　　https://we-yun.com/
-37、Neo4j Community Linux Tarball Installation
+34、Neo4j Community Linux Tarball Installation
 　　https://neo4j.com/docs/operations-manual/current/installation/linux/tarball/#installation-linux-tarball-service
 
 第2章 微软GraphRAG
