@@ -36,11 +36,13 @@ def loadLLM(vendor):
         )
     elif vendor=="Xunfei":
         #  科大讯飞星火默认的超时是30秒，不够，有些块的处理超过30秒，设置为120秒。
-        model = ChatSparkLLM(
-            spark_app_id = keys.appid,
-            spark_api_key = keys.api_key,
-            spark_api_secret = keys.api_secret,
-            model='Spark4.0 Ultra',
+        model  = ChatSparkLLM(
+            spark_api_url="wss://spark-api.xf-yun.com/v4.0/chat",
+            spark_app_id=keys.appid,
+            spark_api_key=keys.api_key,
+            spark_api_secret=keys.api_secret,
+            spark_llm_domain="4.0Ultra",
+            streaming=False,
             timeout=120
         )
     elif vendor=="Tengxun":
